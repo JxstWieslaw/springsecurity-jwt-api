@@ -35,23 +35,26 @@ For instruction: [Spring Boot Refresh Token with JWT example](https://bezkoder.c
   <scope>runtime</scope>
 </dependency>
 ```
+
 ## Configure Spring Datasource, JPA, App properties
 Open `src/main/resources/application.properties`
 - For PostgreSQL:
 ```
-spring.datasource.url= jdbc:postgresql://localhost:5432/testdb
-spring.datasource.username= postgres
-spring.datasource.password= 123
-
-spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation= true
-spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.PostgreSQLDialect
+spring.datasource.url=jdbc:postgresql://localhost:5432/projectonedb
+spring.datasource.username=postgres
+spring.datasource.password=@sams1234
+spring.sql.init.mode =never
+spring.jpa.hibernate.ddl-auto = update
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.jdbc.jdbc.lob.non_contextual_creation = true
+spring.jpa.show-sql = true
 
 # Hibernate ddl auto (create, create-drop, validate, update)
 spring.jpa.hibernate.ddl-auto= update
 
 # App Properties
-bezkoder.app.jwtSecret= bezKoderSecretKey
-bezkoder.app.jwtExpirationMs= 86400000
+wieslaw.app.jwtSecret= wieslawSecretKey
+wieslaw.app.jwtExpirationMs= 86400000
 ```
 - For MySQL
 ```
@@ -63,9 +66,10 @@ spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.MySQL5InnoDBDiale
 spring.jpa.hibernate.ddl-auto= update
 
 # App Properties
-bezkoder.app.jwtSecret= bezKoderSecretKey
-bezkoder.app.jwtExpirationMs= 86400000
+wieslaw.app.jwtSecret= wieslawSecretKey
+wieslaw.app.jwtExpirationMs= 86400000
 ```
+
 ## Run Spring Boot application
 ```
 mvn spring-boot:run
